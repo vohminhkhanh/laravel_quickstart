@@ -1,5 +1,8 @@
 <?php
 
+use App\Task;
+
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +14,15 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/qstart','QuickStartController@loadTask') ;
+ 
+Route::post('/insert-data','QuickStartController@addTask');
+
+Route::delete('/delete/{tasks}','QuickStartController@deleteTask');
+
+Route::get('language/{locale}', 'QuickStartController@language_i18n'); 
